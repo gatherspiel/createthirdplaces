@@ -1,5 +1,6 @@
 import {SetupComponentExample} from "../codeGuides/setup/SetupComponentExample.js";
 import {SetupHtmlExample} from "../codeGuides/setup/SetupHtmlExample.js";
+import {BaseDynamicComponent} from "../../static/places-js-latest.js";
 
 customElements.define('setup-component-example',SetupComponentExample);
 customElements.define('setup-html-example',SetupHtmlExample);
@@ -9,22 +10,40 @@ export class SetupInstructionsComponent extends HTMLElement {
     this.innerHTML = `
       <details open>
         <summary>Installing framework</summary>
-          <h4>Using npm</h4>
+        
+          <ul>
+            <li>Download the latest build <a href="https://github.com/gatherspiel/places-js/blob/main/places-js-latest.js">here.</a></li>
+            <li>Create a module type script in your page HTML. JS imports can then be used for places-js in a manner similar to the example below.
+              <base-code-display-component>
+<script type="module">
+  import {BaseDynamicComponent} from "../../static/places-js-latest.js";
+                         
+  class MainComponent extends BaseDynamicComponent {
+  
+    constructor(){
+      super();
+    }
+  
+  
+    getTemplateStyle() {
+      //Template style goes here.
+    }
+  
+    render(componentState) {
+      //HTML for the component goes here.
+    }
+  }
+  </script> </base-code-display-component> 
+            </li>
+          </ul>
           <ul>
             <li>
-              <pre>npm install @bponnaluri/places-js</pre>
+              places-js can also be installed using npm using the folowing command. <pre>npm install @bponnaluri/places-js</pre>
             </li>
           </ul>
 
           
-          <h4>Building from source</h4>
-          <ul>
-            <li>Clone the places.js repo located <a href="https://github.com/gatherspiel/places-js">here</a></li>
-            <li>
-               Run the following commands<pre>npm run build</pre>  <pre>npm install</pre>
-            </li>
-            <li>Copy the generated places-js.esm.js file to your project.</li>
-          </ul>
+  
          
       </details>
       
