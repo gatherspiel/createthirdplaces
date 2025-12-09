@@ -1,9 +1,8 @@
 export class LoadingIndicatorComponentGuide extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
-      <h3>Detailed example of using loading indicator config with a custom image</h3>
   
-      <h4>Loading config</h4>
+      <p>Loading indicator component </p>
       <base-code-display-component>
 export class LoadingIndicatorComponent extends HTMLElement {
   constructor() {
@@ -142,6 +141,7 @@ customElements.define(
 );
 </base-code-display-component>
 
+<p>Loading indicator config </p>
 <base-code-display-component>
 export const LOADING_INDICATOR_CONFIG = {
   generateLoadingIndicatorHtml: () => {
@@ -154,6 +154,12 @@ export const LOADING_INDICATOR_CONFIG = {
     },
   minTimeMs: 500,
 }; </base-code-display-component>    
+<p>
+  <a href="https://github.com/gatherspiel/DMVBoardGames/blob/2fa2454ed688a942cb880268de606dfa7a6ad7d5/src/ui/list/EventListComponent.js">
+    Here
+  </a> is an example of how this configuration can be applied to a component.
+</p>
     `
   }
 }
+

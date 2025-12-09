@@ -2,9 +2,7 @@
 import {HtmlCodeDisplayComponent} from "../shared/HtmlCodeDisplayComponent.js";
 export class SetupComponentExample extends HtmlCodeDisplayComponent {
   getCode(){
-    return `
-
-import {
+    return `import {
   ApiActionType,
   ApiLoadAction,
   BaseDynamicComponent,

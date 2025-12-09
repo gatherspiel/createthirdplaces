@@ -12,39 +12,40 @@ export class BaseDynamicComponentDoc extends HTMLElement {
       <h4>Constructor paramaeters </h4>
   
       <ul>
-        <li><b>dataStoreSubscriptions</b>: An optional array of subscription configurations the component will subscribe to.
-          <h5>Parameters</h5>
+        <li><b>dataStoreSubscriptions</b>: An optional array of data store subscription configurations.
+          <h5>Fields</h5>
         </li>
         <ul>
-          <li><b>componentReducer: </b>Optional reducer
-              function that defines any transformations that should be made to state data being sent to a component.
+          <li><b>componentReducer: </b>Optional function to define transformations on state data being sent to a 
+          component.
     
               <details open="true">
                 <summary>Example</summary>
               <base-code-display-component>
-    export const componentReducer: (groupData) => {
-      return {
-        ...groupData,
-        [SUCCESS_MESSAGE_KEY]: "",
-      };
-    },
-              </base-code-display-component>
+export const componentReducer: (groupData) => {
+  return {
+    ...groupData,
+    [SUCCESS_MESSAGE_KEY]: "",
+  };
+},</base-code-display-component>
              </details>
           </li> 
-          <li><b>dataStore</b>: The Data Store that that will load and store state. </li>
+          <li><b>dataStore</b>: The DataStore object that that will load and store state. </li>
           <li><b>fieldName</b>: The name that the subscribed data should be stored under. This is an optional field unless the component is subscribed to multiple stores.</li>
               
-        <li><b>loadingIndicatorConfig</b>: Optional configuration settings for a loading indicator. When
-          defined a loading indicator will be displayed when the component needs to load data from an external store.
-          <h5>Parameters</h5>
+        <li><b>loadingIndicatorConfig</b>: Optional configuration for a loading indicator. When
+          defined a loading indicator will be displayed when the component needs to load data from a store.
+          <h5>Fields</h5>
           <ul>
-            <li><b>generateLoadingIndicatorHtml</b>: A function returning the HTML that should be shown.</li>
+            <li><b>generateLoadingIndicatorHtml</b>: A function returning HTML for a loading indicator.</li>
             <li><b>minTimeMs</b>: Optional setting minimum amount of time in miliseconds that the loading indicator will be shown for, regardless of
                 how quickly data is loaded for store subscriptions.  If this value is not specified, then the loading indicator
-                will be shown until the data has loaded.</li>
+                will be shown until the data is loaded into the store. Use when there is a high amount of variabiliy in how
+                fast data will be loaded, and you want to to prevent rapid UI flickering when loading is more quick than usual. It is
+                also useful to make UI responsiveness more consistent.</li>
           </ul>
           <details open="true">
-            <summary>Example</summary>
+            <summary>Basic example</summary>
               <base-code-display-component>
 export const LOADING_INDICATOR_CONFIG = {
   generateLoadingIndicatorHtml: () => {
@@ -54,19 +55,21 @@ export const LOADING_INDICATOR_CONFIG = {
 };
               </base-code-display-component>
             </details>
+            <details open="true">
+              <summary>The loading component indicator can also be a web component with a custom image and 
+              specific styling. Shadow DOM is used to prevent other styles on the page</summary>
+              <loading-indicator-component-guide></loading-indicator-component-guide>
           </li>
         </ul>
   
-  
-       
-          <!-- Make it clear that this is part of the BaseDynamicComponent class -->
-          <h4>Functions </h4>
-          <ul>
-            <li><b>attachHandlersToShadowRoot(shadowRoot)</b>: Use this function to define event handlers on a component.
-            
-              <details open="true">
-                <summary>Example</summary>
-                <base-code-display-component>
+        <h4>Functions </h4>
+        <ul>
+          <li>
+            <b>attachHandlersToShadowRoot(shadowRoot)</b>: Defines event handlers on a component.
+          
+            <details open="true">
+              <summary>Example</summary>
+              <base-code-display-component>
 attachHandlersToShadowRoot(shadowRoot) {
   shadowRoot.addEventListener("click", (event) => {
     if (event.target.id === SIGN_OUT_LINK_ID) {
@@ -80,12 +83,12 @@ attachHandlersToShadowRoot(shadowRoot) {
             
             <li>
               <b>connectedCallback</b>: Standard web component lifecycle method. Use for initializing component state if it
-              does not rely on an external store. A component must be state before it is rendered
+              does not rely on an external store. A component must be state before it is rendered.
               <details open="true">
                 <summary>Example</summary>
                   <base-code-display-component>
 connectedCallback() {
-  document.title = \`Add event for group ${new URLSearchParams(document.location.search).get("name") ?? ""}\`;
+  document.title = \`Add event for group \$\{new URLSearchParams(document.location.search).get("name") ?? ""}\`;
   this.updateData({
     name: "",
     groupName: new URLSearchParams(document.location.search).get("name") ?? ""
@@ -103,16 +106,16 @@ connectedCallback() {
                 <summary>Example</summary>
                                   <base-code-display-component>
   getTemplateStyle() {
-    return \`  
-    <style>
-      a {
-        color: white;
-        text-decoration: none;
-      }
-    </style>
+    return \`
+      <link rel="preload" as="style" href="/styles/sharedHtmlAndComponentStyles.css" onload="this.rel='stylesheet'"/>
+      <style>
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      </style>
     \`;
-  }
-                  </base-code-display-component>
+  }</base-code-display-component>
               </details>
 
             </li>
@@ -126,13 +129,10 @@ connectedCallback() {
                </details>
             </li>
             
-
-      
-           
             <li><b>updateData(data)</b>Use this function to update the state of a component inside an event handler or
-              connectedCallback. <b>Calling this method from another other location can lead to infinite rendering loops
-              or other unpredictable effects.</b>
-              <details>
+              connectedCallback. <b>Calling this method from another location can lead to infinite rendering loops
+              or unpredictable rendering.</b>
+              <details open>
                 <summary>Example from event handler</summary>
                 <base-code-display-component>
 const attachHandlersToShadowRoot = function (shadowRoot) {
@@ -146,8 +146,7 @@ const attachHandlersToShadowRoot = function (shadowRoot) {
         isRecurring: shadowRoot.getElementById(RECURRING_EVENT_INPUT)?.checked,
       });
   }
-}
-                </base-code-display-component>
+}</base-code-display-component>
               </details>
 
             </li>

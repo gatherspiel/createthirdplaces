@@ -2,7 +2,7 @@ export class CustomLoadActionDoc extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
      <div id="custom-load-action-class-guide">
-        <p>Class to define a custom data store load action with direct control over any async calls that are made.
+        <p>Defines a custom data store load action with direct control over any async calls that are made.
           It is intended for use when additional processing needs to be done after an async call, or if a store needs
           to combine data from multiple sources.</p>
 
