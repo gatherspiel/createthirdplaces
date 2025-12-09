@@ -1,5 +1,5 @@
-import {BaseTemplateComponent} from "@bponnaluri/places-js";
 import hljs from 'https://unpkg.com/@highlightjs/cdn-assets@11.11.1/es/highlight.min.js';
+import {BaseTemplateComponent} from "../../../static/places-js-latest.js";
 
 export class HtmlCodeDisplayComponent extends BaseTemplateComponent {
   getTemplateStyle(){

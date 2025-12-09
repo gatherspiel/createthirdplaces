@@ -1,4 +1,5 @@
-import {BaseDynamicComponent} from "@bponnaluri/places-js";
+
+import {BaseDynamicComponent} from "../../static/places-js-latest.js";
 
 export class MainComponent extends BaseDynamicComponent {
 
