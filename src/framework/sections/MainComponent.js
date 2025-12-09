@@ -182,14 +182,19 @@ export class MainComponent extends BaseDynamicComponent {
            Cache data will not be used or updated. See DataStoreLoadConfig for more information about the parameters.</p>
         </details>
   
-  
-  
-        <details  id="show-hide-component-details" ${urlParams.get("show-hide-component-details") ? "open" : ''}>
-          <summary class ="summary-level-one">Example of using places.js for a show/hide component</summary>
+        <h2>Examples</h2>
+
+        <a href="/static/createTimerTutorial.html">Creating a timer using places.js</a>
+        <br>
+        <br>
+
+        <details id="example-details" ${urlParams.get("example-details") ? "open" : ''}>
+           <summary>Show/hide component</summary>
           <show-hide-component-guide></show-hide-component-guide>
         </details>
+
   
-    
+ 
   
         <details id="guidelines-details" ${urlParams.get("guidelines-details") ? "open" : ''}>
             <summary class="summary-level-one">Guidelines for using places.js</summary>
