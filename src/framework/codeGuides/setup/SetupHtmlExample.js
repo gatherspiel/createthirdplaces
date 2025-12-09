@@ -3,9 +3,7 @@ import {HtmlCodeDisplayComponent} from "../shared/HtmlCodeDisplayComponent.js";
 
 export class SetupHtmlExample extends HtmlCodeDisplayComponent {
   getCode(){
-    return `
-
-<!doctype html>
+    return `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,8 +17,6 @@ export class SetupHtmlExample extends HtmlCodeDisplayComponent {
   <body>
    <feedback-component"> </feedback-component>
   </body>
-</html>
-
-    `
+</html>`
   }
 }

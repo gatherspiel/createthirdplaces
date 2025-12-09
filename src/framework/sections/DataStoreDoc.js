@@ -1,24 +1,23 @@
 export class DataStoreDoc extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
-      <h3>DataStore</h3>
-        <p>Class for storing state that is shared between components or data that is from an external
-        source</p>
-        <h4>Parameters</h4>
+        <p>Stores state that is shared between components or state from an external
+        source.</p>
+        <h4>Constructor parameters</h4>
         <ul>
-          <li>LoadAction:An instance of DataStoreLoadAction describing how data should be loaded into a store.
-          Data loading will be asynchronous. </li>
+          <li><b>loadAction</b>: An instance of DataStoreLoadAction describing how data should be loaded into a store.
+          Data loading is asynchronous.</li>
         </ul>
         <h4>Functions</h4>
         <ul>
           <li>
             <b>fetchData(params,dataStore)</b>:Retrieves data from an external source and then updates 
-            subscribers<b>It is strongly recommended that this method is only called from component
+            subscribers<b>. It is strongly recommended that this method is only called from component
             event handlers.</b>
             It has the following parameters <br>
             <ul>
               <li>
-                <b>params:</b>Parameters for this request.
+                <b>params: </b>Parameters that describe the API request.
               </li>
               <li>
                 <b>dataStore:</b>An optional data store that will be subscribed to updates from this store.

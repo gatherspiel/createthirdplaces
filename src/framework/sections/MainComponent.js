@@ -42,6 +42,10 @@ export class MainComponent extends BaseDynamicComponent {
           font-weight: 600;
         }
         
+        #container > details[open] {
+          border-bottom: 1px solid black;
+        }
+        
         #guidelines-list li {
           margin-top:1rem;
         }
@@ -68,7 +72,7 @@ export class MainComponent extends BaseDynamicComponent {
       
         <details id="setup-instructions-component-details" ${urlParams.get("setup-instructions-component-details") ? "open" : ''}>
           <summary class="summary-level-one">
-            Setup Instructions
+            Getting started
           </summary>
           <setup-instructions-component></setup-instructions-component>
         </details>
@@ -117,8 +121,7 @@ export class MainComponent extends BaseDynamicComponent {
           <summary>
             DataStoreLoadAction
           </summary>
-          <h3>DataStoreLoadAction</h3>
-          <p>This class defines an action used to load data into a store. Places.js includes two classes used for 
+          <p>Defines an action used to load data into a store. Places.js includes two classes used for 
           load actions, ApiLoadAction, and CustomLoadAction.</p>
         </details>
   
@@ -136,7 +139,8 @@ export class MainComponent extends BaseDynamicComponent {
             DataStoreLoadConfig
           </summary>
           <div id="data-store-load-config-info">
-            <p>Configuration settings describing how a data store can be loaded from an API.</p>
+            <p>Configuration settings describing how a data store can be loaded from an API.
+             The following fields can be used.</p>
             <ul>
               <li>
                 <b>body</b>: Data that should be sent as part of the request body.
@@ -146,7 +150,7 @@ export class MainComponent extends BaseDynamicComponent {
                 <b>headers</b>: A list of headers included with the request.
               </li>
               <li>
-                <b>method</b>: The API request method, GET, PUST, POUT, ...etc. GET will be used by default if
+                <b>method</b>: The API request method, GET, POST, PUT, ...etc. GET will be used by default if
                 no value is specified.
               </li>
               <li>
@@ -175,24 +179,20 @@ export class MainComponent extends BaseDynamicComponent {
           <h3>getResponseData(dataStoreLoadConfigInfo)</h3>
           <p>Static asynchronous method to fetch data from an API. Use this method if the API request needs
            to be run as part of an event handler and no other components subscribe to the request.
-           Cache data will not be used or updated. See DataStoreLoadConfig for more information about the parameters</p>
+           Cache data will not be used or updated. See DataStoreLoadConfig for more information about the parameters.</p>
         </details>
   
   
-        <h2>Examples</h2>
   
-        <details id="show-hide-component-details" ${urlParams.get("show-hide-component-details") ? "open" : ''}>
-          <summary>Show hide component</summary>
+        <details  id="show-hide-component-details" ${urlParams.get("show-hide-component-details") ? "open" : ''}>
+          <summary class ="summary-level-one">Example of using places.js for a show/hide component</summary>
           <show-hide-component-guide></show-hide-component-guide>
         </details>
   
-        <details id="loading-indicator-component-details" ${urlParams.get("loading-indicator-component-details") ? "open" : ''}>
-          <summary>Loading indicator component</summary>
-          <loading-indicator-component-guide></loading-indicator-component-guide>
-        </details>
+    
   
         <details id="guidelines-details" ${urlParams.get("guidelines-details") ? "open" : ''}>
-            <summary class="summary-level-one">Guidelines for use</summary>
+            <summary class="summary-level-one">Guidelines for using places.js</summary>
           <guidelines-component></guidelines-component>
         </details>
       </div>

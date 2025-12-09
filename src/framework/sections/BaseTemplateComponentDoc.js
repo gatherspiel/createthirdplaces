@@ -1,7 +1,7 @@
 export class BaseTemplateComponentDoc extends HTMLElement {
   connectedCallback(){
     this.innerHTML = `
-      <p>Base class for rendering a component using the shadow DOM without using places.js state management. It
+      <p>Base class for rendering a component using the shadow DOM without places.js state management. It
       extends the HTMLElement class used by 
         <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components">web components.</a>
        </p>
@@ -16,8 +16,7 @@ export class BaseTemplateComponentDoc extends HTMLElement {
           stylesheets.
           <details open="true">
             <summary>Example:</summary>
-            <base-code-display-component>
-getTemplateStyle() {
+            <base-code-display-component>getTemplateStyle() {
   return \`
     &ltlink 
       href="/styles/sharedStyles.css"
@@ -31,22 +30,20 @@ getTemplateStyle() {
       }
     </style>
   \`;
-}
-            </base-code-display-component>
+}</base-code-display-component>
           </details>
         </li>
         <li>
-          <b>render(data)</b>: Required function used to render HTML for the component.
+          <b>render(data)</b>: Required function used to render component HTML.
       
           <details open="true">
             <summary>Example:</summary>
-            <base-code-display-component>
-    render(userData) {
-    return \`
-      <h2>A component</h2>
-    \`;
-    }
-           </base-code-display-component>
+<base-code-display-component>
+render(userData) {
+  return \`
+    <h2>A component</h2>
+  \`;
+}</base-code-display-component>
     
           </details>
         </li>
