@@ -12,7 +12,7 @@ export class GettingStarted extends HTMLElement {
         <summary>Installing framework</summary>
         
           <ul>
-            <li>Download the latest build <a href="https://github.com/gatherspiel/places-js/blob/main/places-js-latest.js">here.</a></li>
+            <li>Download the latest build <a href="https://github.com/gatherspiel/places-js/blob/main/places-js-latest-min.js">here.</a></li>
             <li>Create a module type script in your page HTML.
               <details open>
                 <summary>Example</summary>

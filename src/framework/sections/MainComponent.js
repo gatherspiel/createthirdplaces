@@ -184,7 +184,7 @@ export class MainComponent extends BaseDynamicComponent {
   
         <h2>Examples</h2>
 
-        <a href="/static/createTimerTutorial.html">Creating a timer using places.js</a>
+        <a href="/static/locationListingTutorial.html">Creating a location listing using places.js</a>
         <br>
         <br>
 
