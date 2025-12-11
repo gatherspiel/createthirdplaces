@@ -104,18 +104,18 @@ connectedCallback() {
 
               <details open="true">
                 <summary>Example</summary>
-                                  <base-code-display-component>
+                                  <html-code-display-component>
   getTemplateStyle() {
     return \`
-      <link rel="preload" as="style" href="/styles/sharedHtmlAndComponentStyles.css" onload="this.rel='stylesheet'"/>
-      <style>
+      <link as="style" href="/styles/sharedHtmlAndComponentStyles.css" onload="this.rel='stylesheet'"/>
+      "&gtstyle>
         a {
           color: white;
           text-decoration: none;
         }
       </style>
     \`;
-  }</base-code-display-component>
+  }</html-code-display-component>
               </details>
 
             </li>

@@ -16,21 +16,21 @@ export class BaseTemplateComponentDoc extends HTMLElement {
           stylesheets.
           <details open="true">
             <summary>Example:</summary>
-            <base-code-display-component>getTemplateStyle() {
+            <html-code-display-component>getTemplateStyle() {
   return \`
     &ltlink 
       href="/styles/sharedStyles.css"
       rel="stylesheet" 
       type="text/css" />
 
-    <style>
+    "&gtstyle>
       a {
         color: white;
         text-decoration: none;;
       }
     </style>
   \`;
-}</base-code-display-component>
+}</html-code-display-component>
           </details>
         </li>
         <li>
