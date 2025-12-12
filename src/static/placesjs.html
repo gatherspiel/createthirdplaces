@@ -20,7 +20,8 @@
     import {BaseCodeDisplayComponent} from "../framework/codeGuides/shared/BaseCodeDisplayComponent.js";
     import {CustomLoadActionDoc} from "../framework/sections/CustomLoadActionDoc.js";
     import {DataStoreDoc} from "../framework/sections/DataStoreDoc.js";
-    import {GuidelinesComponent} from "../framework/codeGuides/GuidelinesComponent.js";
+    import {FrameworkHistoryComponent} from "../framework/sections/FrameworkHistoryComponent.js";
+    import {GuidelinesComponent} from "../framework/sections/GuidelinesComponent.js";
     import {ImageHoverComponentGuide} from "../framework/codeGuides/ImageHoverComponentGuide.js";
     import {LoadingIndicatorComponentGuide} from "../framework/codeGuides/LoadingIndicatorComponentGuide.js";
     import {MainComponent} from "../framework/sections/MainComponent.js";
@@ -33,6 +34,7 @@
     customElements.define('base-code-display-component',BaseCodeDisplayComponent);
     customElements.define('custom-load-action-doc',CustomLoadActionDoc);
     customElements.define('data-store-doc',DataStoreDoc);
+    customElements.define('framework-history-component',FrameworkHistoryComponent);
     customElements.define('guidelines-component',GuidelinesComponent);
     customElements.define('image-hover-component-guide',ImageHoverComponentGuide)
     customElements.define('loading-indicator-component-guide',LoadingIndicatorComponentGuide);
@@ -48,8 +50,8 @@
 
   <h2>Overview</h2>
 
-  <p> Places.js is a  Javascript framework for creating interactive websites promoting in person interaction.
-    Source code is <a href="https://github.com/gatherspiel/places-js">here </a></p>
+  <p> Places.js is a Javascript framework for creating interactive websites promoting in person interaction.
+    Source code is <a href="https://github.com/createthirdplaces/places-js">here </a></p>
 
   <br>
   <b>Places.js supports the following features and has no dependencies.</b>
@@ -62,16 +64,17 @@
 
   <h2>Notes about the design goals of places.js</h2>
 
-  <ul>
-    <li><b>UI state that easy to reason about.</b> Places.js uses synchronous
-      publish subscribe code to make sure components have correct UI state. While there is some complexity
-      from the fact that the components are coupled with state management logic, it reduces complexity
-      by making the code easier to reason about.
+  <ol>
+    <li><b>UI state that easy to reason about.</b> Code should be understandable by people familiar with CSS, HTML,
+      and JavaScript without having to spend a long time learning about framework specific abstractions. This means
+      developers can spend more time learning about what users are looking for and improving quality.
       <br>
       <br>
-      When there is a logic error in a places.js component, understanding how and when the component is
-      updated helps address bugs. The synchronous updates also help when generating stack traces to
-      give information about the cause of an error.
+      Places.js uses synchronous  publish subscribe code to make sure components have correct UI state. While there is
+      some complexity from the fact that the components are coupled with state management logic, it reduces complexity
+      by making the code easier to reason about. When there is a logic error in a places.js component, understanding
+      how and when the component is updated helps address bugs. The synchronous updates also help when generating stack
+      traces to give information about the cause of an error.
       <br>
       <br>
       If multiple components are subscribed to the state, the components will be updated in the order that
@@ -85,7 +88,10 @@
     <li><b>Encourage people to manually test UIs</b>. Human testing is helpful for subjective criteria
       such as usability that cannot be tested with automation. Places.js is designed around the idea that complexity
       on the frontend is minimized, while the backend has most of the complexity. Minimizing complexity on the frontend
-      will help make sure that UI testing can focus on subjective criteria.
+      will help make sure that UI testing can focus on subjective criteria. Most of the testing for places.js
+      has been done through manual testing of a local dmvboardgames.com instance. Complexity for dmvboardgames.com
+      is mainly on the <a href="https://github.com/gatherspiel/backend">backend</a>, which includes comprehensive
+      <a href="https://github.com/gatherspiel/backend/tree/main/src/test/java/app">database integration tests.</a>
       <br>
       <br>
       Places.js components are also built with shadow DOM to encapsulate styles and make it harder for bots to scrape
@@ -95,7 +101,10 @@
       On the other hand, places.js is also has support for asynchronous data fetching from a backend API, and automated
       testing efforts should be focused there. API endpoints used by places.js should have clearly defined
       correct behavior not defined by subjective criteria, and they should be covered by automated testing.
-
+    </li>
+    <br>
+    <li><b>Ensure that usability is prioritized.</b>: Places.js supports developers to make websites that are as
+      straighforward as possible from a user perspective.
     </li>
     <br>
     <li><b>Promote creating websites without the use of generative AI tools such as ChatGPT, GitHub Copilot, or
@@ -112,7 +121,9 @@
       of making cde easier to reason about.
 
       One possible way of optimising rendering is by using virtual DOM diffing. While virtual
-      DOM diffing is likely to make re-rendering of places.js components faster, it does have costs.
+      DOM diffing is likely to make re-rendering of places.js components faster, it does have costs. If a site made with
+      places.js is complex enough to the point where it is slow, then optimizing with virtual DOM isn’t going to fix
+      underlying issues with UI complexity or an architecture that should be updated.
       <br>
       <br>
       Virtual dom diffing would add complexity to places.js, which would make the framework significantly harder
@@ -121,10 +132,15 @@
       the DOM within the component is re-rendered.
       <br>
       <br>
+      <a href="https://krausest.github.io/js-framework-benchmark/">Performance benchmarks</a> comparing the React and
+      Solid JS libraries indicate the React is significantly slower. React uses virtual DOM, and Solid does not.
+      Both libraries are also designed for interactive component based UIs.
+      <br>
+      <br>
       If an entire UI component should not re-render every time there is a state change, one alternative could
       be to split up the component and have each one of smaller components subscribed ot the state.
     </li>
-  </ul>
+  </ol>
   <br>
 </div>
 

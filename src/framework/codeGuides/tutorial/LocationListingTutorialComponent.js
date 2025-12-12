@@ -1,6 +1,7 @@
 
 import {BaseDynamicComponent} from "../../../shared/places-js-latest.js";
 
+
 export class LocationListingTutorialComponent extends BaseDynamicComponent {
 
   constructor(){
@@ -64,7 +65,6 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
   }
 
   render() {
-
     const urlParams = new URLSearchParams(document.location.search);
 
     return `
@@ -87,7 +87,7 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
          information, and there wasn't an existing source of information.</p>
          
          <p>On the other hand, there are instances where places.js or another web-based solution isn't useful. I
-         considered using places.js to create a simple timer application that could help mindful breating with on
+         considered using places.js to create a simple timer application that could help mindful breathing with on
          a consistent interval. However, I came to the conclusion that it is better to learn in person from someone
          who is experienced with mindful breathing, or self-learn, and then breathe mindfully without using any 
          electronics. Using an online timer involves an extra step, and it can lead to being distracted from mindfulness
@@ -137,7 +137,6 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
             8. Displaying error information by connecting to an API endpoint that does not exist.
           </summary>
         </details>
-  
     `
   }
 }

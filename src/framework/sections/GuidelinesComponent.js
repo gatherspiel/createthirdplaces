@@ -9,7 +9,9 @@ export class GuidelinesComponent extends HTMLElement{
           <br>
           <br>
           In a website that uses places.js, often it will make sense to create pages using standard web components
-          or not use any JavaScript. Places.js is designed to be used on specific parts of a website with
+          or not use any JavaScript. There are many instances where standard web components will be less complex to use, 
+          and standard web components will be sigificantly faster to render for large numers of simple components. 
+          Places.js is designed to be used specific parts of a webpage with
           complex interactivity or backend data fetching.
           <br>
           <br>
