@@ -193,12 +193,15 @@ export class MainComponent extends BaseDynamicComponent {
           <show-hide-component-guide></show-hide-component-guide>
         </details>
 
-  
  
-  
         <details id="guidelines-details" ${urlParams.get("guidelines-details") ? "open" : ''}>
             <summary class="summary-level-one">Guidelines for using places.js</summary>
           <guidelines-component></guidelines-component>
+        </details>
+        
+        <details id="framework-history-details" ${urlParams.get("framework-history-details") ? "open" : ''}>
+            <summary class="summary-level-one">Early history of places.js - Bharat Ponnaluri</summary>
+          <framework-history-component></framework-history-component>
         </details>
       </div>
     `

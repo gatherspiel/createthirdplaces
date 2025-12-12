@@ -1,6 +1,8 @@
 
 import {BaseDynamicComponent} from "../../../shared/places-js-latest.js";
 
+export class RowComponent extends BaseDynamicComponent
+
 export class LocationListingTutorialComponent extends BaseDynamicComponent {
 
   constructor(){
@@ -64,7 +66,7 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
   }
 
   render() {
-
+/*
     const urlParams = new URLSearchParams(document.location.search);
 
     return `
@@ -138,6 +140,6 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
           </summary>
         </details>
   
-    `
+    `*/
   }
 }
