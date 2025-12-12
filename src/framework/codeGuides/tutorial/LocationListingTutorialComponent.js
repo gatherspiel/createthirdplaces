@@ -66,7 +66,6 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
   }
 
   render() {
-/*
     const urlParams = new URLSearchParams(document.location.search);
 
     return `
@@ -139,7 +138,6 @@ export class LocationListingTutorialComponent extends BaseDynamicComponent {
             8. Displaying error information by connecting to an API endpoint that does not exist.
           </summary>
         </details>
-  
-    `*/
+    `
   }
 }
