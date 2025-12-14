@@ -60,14 +60,24 @@ render(data){
 }
 </base-code-display-component>
 </details>
-      <p>Display a location marker on map</p>
-      <p>Separate code display blocks for styles and map code</p>
-      <p>Add ability to edit location</p>
-      <p>Add ability to delete location</p>
       
-      <p>Export as JSON</p>
-      <p>Importing existing data using connectedCallback.</p>
-      <p>Map guide </p>
+      <p>After verifying that the map shows up, here is an example of locations can be shown on the map. The following 
+      features are supported.</p>
+      
+      <ul>
+        <li>Location names can be created, edited, or deleted.</li>
+        <li>When a location is saved on the map, it will be displayed as a star at the location that the user clicked
+        on.</li>
+        <li>Location data can be exported as JSON. The locations on the map are stored in pixel coordinates.</li>
+        <li>Location data can be imported as JSON.</li>
+</ul>
+
+      <p>This code represents a proof of concept with basic features and styling. The latest version can be
+      viewed <a href="/locationMapListing.html">here</a>. Also, it is recommended that the JavaScript for the component
+      is in a separate file if it will be updated. The combined HTML and Javascript is for ease of use when getting 
+      started.</p>
+
+      <map-update-guide-part-one></map-update-guide-part-one>
     `
   }
 }

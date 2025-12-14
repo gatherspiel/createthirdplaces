@@ -1,4 +1,4 @@
-import {AddItemsGuide} from "./locationListing/AddItemsGuide.js";
+import {AddItemsGuide} from "./codeComponents/AddItemsGuide.js";
 
 customElements.define('add-items-guide',AddItemsGuide);
 
